@@ -7,9 +7,10 @@ namespace OpenCol.Client {
     public class OpenColGame : Game {
 
         public GraphicsDeviceManager Graphics { get; private set; }
-        protected SpriteBatch SpriteBatch { get; set; }        
 
         protected KeyboardHandler Keyboard { get; private set; }
+
+        protected RenderHandler Renderer { get; private set; }
 
         public OpenColGame() {
             Window.Title = "OpenCol Game";
@@ -21,14 +22,19 @@ namespace OpenCol.Client {
 
             Graphics.ApplyChanges();
 
+
+            // 
+            Renderer = new RenderHandler(Graphics);
+
+
+            // User interaction
             Keyboard = new KeyboardHandler();
         }
 
         protected override void Initialize() {
             base.Initialize();
 
-            // TODO: Creates a renderer.
-            SpriteBatch = new SpriteBatch(GraphicsDevice);
+            Renderer.Initialize();
         }
 
         protected override void LoadContent() {
@@ -40,9 +46,7 @@ namespace OpenCol.Client {
         protected override void Draw(GameTime gameTime) {
             Graphics.GraphicsDevice.Clear(Color.Bisque);
 
-            // TODO: Use renderer class for drawing everything.
-            SpriteBatch.Begin();
-            SpriteBatch.End();
+            Renderer.Draw(gameTime);
 
             base.Draw(gameTime);
         }
