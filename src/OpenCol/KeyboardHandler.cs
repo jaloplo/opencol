@@ -17,6 +17,7 @@ namespace OpenCol {
 
 
         public KeyboardHandler() {
+            LastKeysPressed = new Keys[0];
         }
 
 
