@@ -8,19 +8,23 @@ namespace OpenCol {
 
     public class KeyboardHandler {
 
+        // Events
         public Action<IList<Keys>> KeyDown;
         public Action<IList<Keys>> KeyUp;
 
+        // Properties
         protected Keys[] LastKeysPressed { get; set; }
+
 
         public KeyboardHandler() {
         }
+
 
         public virtual void Update(GameTime gameTime) {
             
             var state = Keyboard.GetState();
             var currentKeysPressed = state.GetPressedKeys();
-            
+
 
             // KeyDown process
             var newKeysPressed = currentKeysPressed.Where(k => !LastKeysPressed.Contains(k)).ToList();
