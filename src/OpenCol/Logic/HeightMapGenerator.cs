@@ -35,16 +35,8 @@ namespace OpenCol.Logic {
             builder.SourceModule = noise;
             builder.Build();
 
-            // TODO: For better performance, HeightMap should implement NoiseMap interface
-
-            var heightMap = new HeightMap();
-
-            for(var x = 0; x < width; x++) {
-                for(var y = 0; y < height; y++) {
-                    heightMap.SetValue(x, y, map.GetValue(x, y));
-                }
-            }
-
+            var heightMap = new HeightMap(map);
+            
             return new ReadOnlyHeightMap(heightMap);
         }
     }
