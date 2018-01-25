@@ -25,6 +25,11 @@ namespace OpenCol.Logic {
             turbulence.Frequency = 4;
             turbulence.Source0 = noise;
 
+            var clamper = new Clamp();
+            clamper.LowerBound = 0;
+            clamper.UpperBound = 1;
+            clamper.Source0 = turbulence;
+
             var map = new NoiseMap(width, height);
 
             var builder = new PlaneNoiseMapBuilder();
@@ -32,7 +37,7 @@ namespace OpenCol.Logic {
             builder.DestNoiseMap = map;
             builder.SetBounds(-5, 5, -5, 5);
             builder.SetDestSize(width, height);
-            builder.SourceModule = noise;
+            builder.SourceModule = clamper;
             builder.Build();
 
             var heightMap = new HeightMap(map);
