@@ -1,25 +1,16 @@
 namespace OpenCol.Logic {
-
+    
     using SharpNoise;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
 
-    public class HeightMap : IMap2D {
+    public class HeightMap : Map<HeightDataMap> {
 
-        protected NoiseMap ParentMap { get; private set; }
+        public HeightMap(NoiseMap map) 
+            : base(map) {
 
-        public HeightMap(NoiseMap map) {
-            ParentMap = map;
         }
 
-
-        public IDataMap2D GetValue(int x, int y) {
-            return new HeightDataMap(x, y, ParentMap.GetValue(x, y));
-        }
-
-        public void SetValue(int x, int y, float value) {
-            ParentMap[x, y] = value;
+        protected override HeightDataMap GetDataMapItem(int x, int y, float value) {
+            return new HeightDataMap(x, y, value);
         }
     }
 }

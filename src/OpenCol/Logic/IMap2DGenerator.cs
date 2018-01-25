@@ -1,7 +1,8 @@
 namespace OpenCol.Logic {
 
-    public interface IMap2DGenerator {
+    public interface IMap2DGenerator<T>
+        where T : IDataMap2D {
 
-        IMap2D Generate(int width, int height);
+        IMap2D<T> Generate(int width, int height);
     }
 }

@@ -4,7 +4,8 @@ namespace OpenCol.Logic {
     using SharpNoise.Builders;
     using SharpNoise.Modules;
 
-    public abstract class MapGenerator : IMap2DGenerator {
+    public abstract class MapGenerator<T> : IMap2DGenerator<T> 
+        where T : IDataMap2D {
 
         public Module Module { get; set; }
 
@@ -12,7 +13,7 @@ namespace OpenCol.Logic {
             Module = new Constant();
         }
 
-        public virtual IMap2D Generate(int width, int height) {
+        public virtual IMap2D<T> Generate(int width, int height) {
             var map = new NoiseMap(width, height);
 
             var builder = new PlaneNoiseMapBuilder();
@@ -26,6 +27,6 @@ namespace OpenCol.Logic {
             return TransformMap(map);
         }
 
-        protected abstract IMap2D TransformMap(NoiseMap map);
+        protected abstract IMap2D<T> TransformMap(NoiseMap map);
     }
 }
