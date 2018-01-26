@@ -1,4 +1,4 @@
-namespace OpenCol.Logic {
+namespace OpenCol.Logic.TerrainGeneration {
 
     public interface IMap2DGenerator<T>
         where T : IDataMap2D {

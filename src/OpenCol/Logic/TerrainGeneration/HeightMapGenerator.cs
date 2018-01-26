@@ -1,4 +1,4 @@
-namespace OpenCol.Logic {
+namespace OpenCol.Logic.TerrainGeneration {
 
     using SharpNoise;
     using SharpNoise.Modules;
