@@ -20,7 +20,7 @@ namespace OpenCol.Logic {
         }
 
         protected override IMap2D<DataMap> TransformMap(NoiseMap noiseMap) {
-            var map = new TemperatureMap(noiseMap);
+            var map = new Map(noiseMap);
 
             var coldestPercentage = Math.Floor(noiseMap.Height * 0.03);
             var colderPercentage = Math.Floor(noiseMap.Height * 0.09);

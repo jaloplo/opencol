@@ -27,7 +27,7 @@ namespace OpenCol.Logic {
         }
 
         protected override IMap2D<DataMap> TransformMap(NoiseMap map) {
-            var heightMap = new HeightMap(map);            
+            var heightMap = new Map(map);            
             return new ReadOnlyHeightMap(heightMap);
         }
     }
