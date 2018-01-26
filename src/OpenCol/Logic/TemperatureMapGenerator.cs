@@ -7,8 +7,9 @@ namespace OpenCol.Logic {
     public class TemperatureMapGenerator : MapGenerator<DataMap> {
 
         public TemperatureMapGenerator() {
-            var noise = new Perlin();
-            noise.Frequency = .75f;
+            var noise = new RidgedMulti();
+            noise.Seed = new Random().Next();
+            noise.Frequency = .25f;
             noise.OctaveCount = 4;
 
             var clamper = new Clamp();
