@@ -1,16 +1,16 @@
 namespace OpenCol.Logic {
     
-    public class ReadOnlyHeightMap : IMap2D<HeightDataMap> {
+    public class ReadOnlyHeightMap : IMap2D<DataMap> {
 
-        protected IMap2D<HeightDataMap> Parent { get; private set; }
+        protected IMap2D<DataMap> Parent { get; private set; }
 
 
-        public ReadOnlyHeightMap(IMap2D<HeightDataMap> parent) {
+        public ReadOnlyHeightMap(IMap2D<DataMap> parent) {
             Parent = parent;
         }
 
 
-        public virtual HeightDataMap GetValue(int x, int y) {
+        public virtual DataMap GetValue(int x, int y) {
             return Parent.GetValue(x, y);
         }
     }

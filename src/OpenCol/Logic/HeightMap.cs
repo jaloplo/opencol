@@ -2,15 +2,15 @@ namespace OpenCol.Logic {
     
     using SharpNoise;
 
-    public class HeightMap : Map<HeightDataMap> {
+    public class HeightMap : Map<DataMap> {
 
         public HeightMap(NoiseMap map) 
             : base(map) {
 
         }
 
-        protected override HeightDataMap GetDataMapItem(int x, int y, float value) {
-            return new HeightDataMap(x, y, value);
+        protected override DataMap GetDataMapItem(int x, int y, float value) {
+            return new DataMap(x, y, value);
         }
     }
 }

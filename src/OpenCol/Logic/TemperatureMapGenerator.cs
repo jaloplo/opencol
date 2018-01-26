@@ -4,7 +4,7 @@ namespace OpenCol.Logic {
     using SharpNoise.Modules;
     using System;
     
-    public class TemperatureMapGenerator : MapGenerator<TemperatureDataMap> {
+    public class TemperatureMapGenerator : MapGenerator<DataMap> {
 
         public TemperatureMapGenerator() {
             var noise = new Perlin();
@@ -19,7 +19,7 @@ namespace OpenCol.Logic {
             Module = clamper;
         }
 
-        protected override IMap2D<TemperatureDataMap> TransformMap(NoiseMap noiseMap) {
+        protected override IMap2D<DataMap> TransformMap(NoiseMap noiseMap) {
             var map = new TemperatureMap(noiseMap);
 
             var coldestPercentage = Math.Floor(noiseMap.Height * 0.03);

@@ -4,7 +4,7 @@ namespace OpenCol.Logic {
     using SharpNoise.Modules;
     using System;
     
-    public class HeightMapGenerator : MapGenerator<HeightDataMap> {
+    public class HeightMapGenerator : MapGenerator<DataMap> {
 
         public HeightMapGenerator() {
             var noise = new Perlin();
@@ -26,7 +26,7 @@ namespace OpenCol.Logic {
             Module = clamper;
         }
 
-        protected override IMap2D<HeightDataMap> TransformMap(NoiseMap map) {
+        protected override IMap2D<DataMap> TransformMap(NoiseMap map) {
             var heightMap = new HeightMap(map);            
             return new ReadOnlyHeightMap(heightMap);
         }
