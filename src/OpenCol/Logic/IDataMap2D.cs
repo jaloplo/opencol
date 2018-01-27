@@ -1,8 +1,4 @@
 namespace OpenCol.Logic {
-    public interface IDataMap2D {
-        
-        Coordinates2D Coordinates { get; }
-
-        float Value { get; }
+    public interface IDataMap2D : IData2D<float> {
     }
 }

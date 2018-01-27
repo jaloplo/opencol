@@ -7,7 +7,7 @@ namespace OpenCol.Logic.TerrainGeneration {
     public abstract class MapGenerator<T> : IMap2DGenerator<T> 
         where T : IDataMap2D {
 
-        public Module Module { get; set; }
+        protected Module Module { get; set; }
 
         public MapGenerator() {
             Module = new Constant();
