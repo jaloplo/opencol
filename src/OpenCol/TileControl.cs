@@ -5,18 +5,20 @@ namespace OpenCol {
 
     public class TileControl : IControl {
 
+        protected Color Color { get; private set; }
         public Vector2 Position { get; private set; }
         protected Texture2D Texture { get; private set; }
 
-        public TileControl(Vector2 position) {
+        public TileControl(Vector2 position, Color color) {
+            Color = color;
             Position = position;
         }
 
         protected void GenerateTexture(GraphicsDevice device) {
-            Texture = new Texture2D(device, 31, 31);
-            var pixels = new Color[31*31];
+            Texture = new Texture2D(device, 7, 7);
+            var pixels = new Color[7*7];
             for(var i = 0; i < pixels.Length; i++) {
-                pixels[i] = Color.Red;
+                pixels[i] = Color;
             }
             Texture.SetData(pixels);
         }
